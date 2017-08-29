@@ -13,24 +13,6 @@ angular.module('forms').directive('fieldDirective', ['$http', '$compile', '$root
 
     var getTemplateUrl = function(fieldType) {
         var type = fieldType;
-
-        var supported_fields = [
-            'textfield',
-            'textarea',
-			'file',
-            'date',
-            'dropdown',
-            'hidden',
-            'password',
-            'radio',
-            'legal',
-            'statement',
-            'rating',
-            'yes_no',
-            'number',
-            'natural'
-        ];
-
         var templateUrl = 'modules/forms/base/views/directiveViews/field/';
 
 		if (__indexOf.call(supportedFields, type) >= 0) {

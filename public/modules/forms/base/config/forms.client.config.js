@@ -4,6 +4,7 @@
 angular.module('forms').value('supportedFields', [
 	'textfield',
 	'textarea',
+	'file',
 	'date',
 	'dropdown',
 	'hidden',

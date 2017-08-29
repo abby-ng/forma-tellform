@@ -40,10 +40,10 @@ angular.module('forms').service('FormFields', [ '$filter',
 		    //     name : 'sig',
 		    //     value : $filter('translate')('SIGNATURE'),
 		    // },
-			// {
-		    //     name : 'file',
-		    //     value : $filter('translate')('FILE_UPLOAD'),
-		    // },
+		    {
+		        name: 'file',
+		        value: $filter('translate')('FILE_UPLOAD'),
+		    },
 		    {
 		        name : 'rating',
 		        value : $filter('translate')('RATING'),

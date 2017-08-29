@@ -28,6 +28,7 @@ angular.module('view-form')
 angular.module('view-form').value('supportedFields', [
 	'textfield',
 	'textarea',
+	'file',
 	'date',
 	'dropdown',
 	'hidden',

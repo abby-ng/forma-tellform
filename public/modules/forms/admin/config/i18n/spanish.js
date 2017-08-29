@@ -160,7 +160,7 @@ angular.module('forms').config(['$translateProvider', function ($translateProvid
     RATING: 'Puntaje',
     NUMBERS: 'Números',
     SIGNATURE: 'Firma',
-    FILE_UPLOAD: 'Subir archivo',
+    FILE_UPLOAD: 'Archivo adjunto',
     OPTION_SCALE: 'Escala',
     PAYMENT: 'Pago',
     STATEMENT: 'Declaración',
