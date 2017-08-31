@@ -26,6 +26,7 @@ angular.module('forms').config(['$translateProvider', function ($translateProvid
 	LEGAL_NO_ACCEPT: 'I don’t accept',
 	DELETE: 'Delete',
 	CANCEL: 'Cancel',
+	RESET: 'Reset',
 	SUBMIT: 'Submit',
 	UPLOAD_FILE: 'Upload your File',
   TYPE_OR_SELECT_OPTION: 'Type or select an option',
