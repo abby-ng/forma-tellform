@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootScope', 'Auth',
-  function($http, $filter, $rootScope, Auth) {
+angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootScope', 'Auth', 'localStorageService',
+  function($http, $filter, $rootScope, Auth, localStorageService) {
     return {
       templateUrl: 'modules/forms/base/views/directiveViews/form/form.client.view.html',
       restrict: 'E',
@@ -104,6 +104,20 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         /*
          ** Form Display Functions
          */
+        
+        var storeLocalStorage = function(form) {
+          var storedForms = localStorageService.get(form._id);
+          if (storedForms === null) {
+            storedForms = [];
+          }
+          storedForms.push({'form': form, 'timestamp': Date.now()});
+
+          // Clear all entries older than 2 weeks
+          var twoWeeks = 2 * 7 * 24 * 60 * 60 * 1000;
+          var cleanedForms = _.filter(storedForms, function(o) { return o.timestamp > (Date.now() - twoWeeks); });
+          localStorageService.set(form._id, cleanedForms);
+        };
+
         $scope.exitStartPage = function() {
           $scope.myform.startPage.showStart = false;
           if ($scope.myform.form_fields.length > 0) {
@@ -124,6 +138,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           $scope.button_clicked = true;
 
           var form = _.cloneDeep($scope.myform);
+          storeLocalStorage(form);
 
           setTimeout(function() {
             $scope.submitPromise = $http.post('/forms/' + $scope.myform.admin.agency.shortName + '/' + $scope.myform._id + '/submissions', form)
