@@ -19,6 +19,10 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
             var formKey = allKeys[i];
             var forms = localStorageService.get(formKey);
             var cleanedForms = _.filter(forms, function(o) { return o.timestamp > (Date.now() - twoWeeks); });  
+            if (cleanedForms.length === 0) {
+              localStorageService.remove(formKey);
+              continue;
+            }
             if (cleanedForms.length !== forms.length) {
               localStorageService.set(formKey, cleanedForms);
             }
