@@ -10,6 +10,25 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         myform: '='
       },
       controller: function($document, $window, $scope) {
+
+        var cleanLocalStorage = function() {
+          // Clear all cached forms that are older than two weeks old
+          var twoWeeks = 2 * 7 * 24 * 60 * 60 * 1000;
+          var allKeys = localStorageService.keys();
+          for (var i = 0; i < allKeys.length; i++) {
+            var formKey = allKeys[i];
+            var forms = localStorageService.get(formKey);
+            var cleanedForms = _.filter(forms, function(o) { return o.timestamp > (Date.now() - twoWeeks); });  
+            if (cleanedForms.length !== forms.length) {
+              localStorageService.set(formKey, cleanedForms);
+            }
+          }
+        }
+
+        cleanLocalStorage();
+        
+        // var cleanedForms = _.filter(storedForms, function(o) { return o.timestamp > (Date.now() - twoWeeks); });
+        
         $scope.authentication = $rootScope.authentication;
         $scope.myform.form_fields = $filter('addFieldNumber')($scope.myform.form_fields);
 
@@ -111,11 +130,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
             storedForms = [];
           }
           storedForms.push({'form': form, 'timestamp': Date.now(), 'submissionId': submissionId});
-
-          // Clear all entries older than 2 weeks
-          var twoWeeks = 2 * 7 * 24 * 60 * 60 * 1000;
-          var cleanedForms = _.filter(storedForms, function(o) { return o.timestamp > (Date.now() - twoWeeks); });
-          localStorageService.set(form._id, cleanedForms);
+          localStorageService.set(form._id, storedForms);
         };
 
         $scope.exitStartPage = function() {

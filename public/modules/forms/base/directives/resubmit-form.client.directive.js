@@ -36,7 +36,7 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
 
           paginationPageSize: DEFAULT_PAGE_SIZE,
           paginationPageSizes: [ DEFAULT_PAGE_SIZE ],
-          useExternalPagination: true,
+          useExternalPagination: false,
 
           useExternalSorting: false,
 
@@ -96,40 +96,28 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
           $scope.selectedRows = undefined;
           $scope.gridOptions.totalItems = savedForms === null ? 0 : savedForms.length;
           var gridData = [];
-          if (savedForms.length === 0) {
-            $scope.gridOptions.data = gridData;
-          }
-          savedForms.forEach(function(sForm) {
+          for (var i = 0; i < savedForms.length; i++) {
+            var sForm = savedForms[i];
             gridData.push({
               '_id': sForm['submissionId'],
               'created': moment(sForm['timestamp']).tz('Asia/Singapore').format('DD MMM YYYY hh:mm:ss A')
             });
-          });
+          }
           $scope.gridOptions.data = gridData;
         };
 
         $scope.deleteSubmissions = function() {
-          // TODO: Set delete button inactive and loading for a few seconds
           $scope.button_clicked = true;
-          setTimeout(function(){ 
-            console.log('happened');
-            var submissionIds = $scope.selectedRows.map(row => row._id);
-            var newSavedForms = _.filter(savedForms, function(f) { return submissionIds.indexOf(f.submissionId) < 0 });
-            localStorageService.set($scope.myform._id, newSavedForms);
-            $scope.button_clicked = false;
-            getPage();
-          }, 2000);
+          var submissionIds = $scope.selectedRows.map(row => row._id);
+          savedForms = _.filter(savedForms, function(f) { return submissionIds.indexOf(f.submissionId) < 0 });
+          localStorageService.set($scope.myform._id, savedForms);
+          $scope.button_clicked = false;
+          getPage();
         }
-
-        var hasCrossedTwoSeconds = false;
-        var finishedResubmit = false;
 
         var resubmitForm = function() {
           if (resubmittedForms.length === 0) {
-            finishedResubmit = true;
-            if (hasCrossedTwoSeconds) {
-              $scope.button_clicked = false;  
-            }
+            $scope.button_clicked = false;  
             return;
           }
           var form = resubmittedForms.pop()['form'];
@@ -148,13 +136,6 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
           resubmittedForms = _.filter(savedForms, function(f) { return submissionIds.indexOf(f.submissionId) >= 0 });
           $scope.button_clicked = true;
           resubmitForm();
-          // At least pause 2 seconds
-          setTimeout(function(){ 
-            hasCrossedTwoSeconds = true;
-            if (finishedResubmit) {
-              $scope.button_clicked = false;
-            }
-          }, 2000);
         }
 
         getPage();
