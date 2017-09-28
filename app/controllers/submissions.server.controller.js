@@ -86,11 +86,13 @@ exports.create = function(req, res, next) {
 			transport.sendMail(mailOptions, function(err, info) {
 				if (!err) {
 					res.send({
-						message: 'Form submission email successfully sent to form admin.'
+						message: 'Form submission email successfully sent to form admin.',
+						submissionId: submission.id
 					});
 				} else {
 					return res.status(400).send({
-						message: 'Failure sending form submission email.'
+						message: 'Failure sending form submission email.',
+						submissionId: submission.id
 					});
 				}
 

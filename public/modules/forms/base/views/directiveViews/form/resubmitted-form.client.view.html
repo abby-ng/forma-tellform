@@ -1,0 +1,35 @@
+<div class="submissions-table container">
+
+<div class="button-filter-bar row">
+<div class="button-panel col-md-2">
+	<small>
+		<button class="btn btn-danger"
+						ng-click="deleteSubmissions()"
+						ng-disabled="!selectedRows || selectedRows.length === 0 || button_clicked">
+			<i class="glyphicon glyphicon-trash"></i>
+			<span class="hidden-xs hidden-sm"><span ng-show="button_clicked"><i class="glyphicon glyphicon-refresh spinning"></i></span>{{ 'DELETE' | translate }}</span>
+		</button>
+	</small>
+</div>
+<div class="button-panel col-md-2">
+	<small>
+		<button class="btn btn-info"
+						ng-click="resubmitSubmissions()"
+						ng-disabled="!selectedRows || selectedRows.length === 0 || button_clicked">
+			<i class="glyphicon glyphicon-random"></i>
+			<span class="hidden-xs hidden-sm"><span ng-show="button_clicked"><i class="glyphicon glyphicon-refresh spinning"></i></span>{{ 'RESUBMIT' | translate }}</span>
+		</button>
+	</small>
+</div>
+</div>
+
+
+<div ng-if="gridOptions.totalItems && gridOptions.data"
+		 class="grid"
+		 ui-grid="gridOptions"
+		 ui-grid-pagination
+		 ui-grid-selection>
+</div>
+
+
+</div>

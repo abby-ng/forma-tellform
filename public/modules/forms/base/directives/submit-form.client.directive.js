@@ -105,12 +105,12 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
          ** Form Display Functions
          */
         
-        var storeLocalStorage = function(form) {
+        var storeLocalStorage = function(form, submissionId) {
           var storedForms = localStorageService.get(form._id);
           if (storedForms === null) {
             storedForms = [];
           }
-          storedForms.push({'form': form, 'timestamp': Date.now()});
+          storedForms.push({'form': form, 'timestamp': Date.now(), 'submissionId': submissionId});
 
           // Clear all entries older than 2 weeks
           var twoWeeks = 2 * 7 * 24 * 60 * 60 * 1000;
@@ -138,11 +138,11 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           $scope.button_clicked = true;
 
           var form = _.cloneDeep($scope.myform);
-          storeLocalStorage(form);
 
           setTimeout(function() {
             $scope.submitPromise = $http.post('/forms/' + $scope.myform.admin.agency.shortName + '/' + $scope.myform._id + '/submissions', form)
               .success(function(data, status, headers) {
+                storeLocalStorage(form, data['submissionId']);
                 $scope.myform.submitted = true;
                 $scope.button_clicked = false;
                 if (cb) {

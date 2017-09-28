@@ -49,6 +49,7 @@ angular.module('forms').config(['$translateProvider', function ($translateProvid
 		DELETE_FORM_SM: 'Delete',
 		DELETE_FORM_MD: 'Delete Form',
 		DELETE: 'Delete',
+		RESUBMIT: 'Resubmit',
 		FORM: 'Form',
 		VIEW: 'View',
 		LIVE: 'Live',
