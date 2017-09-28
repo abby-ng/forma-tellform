@@ -95,6 +95,12 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
         var getPage = function() {
           $scope.selectedRows = undefined;
           $scope.gridOptions.totalItems = savedForms === null ? 0 : savedForms.length;
+          $scope.gridOptions.data = [];
+          
+          if (savedForms === null) {
+            return;
+          }
+
           var gridData = [];
           for (var i = 0; i < savedForms.length; i++) {
             var sForm = savedForms[i];
@@ -103,6 +109,7 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
               'created': moment(sForm['timestamp']).tz('Asia/Singapore').format('DD MMM YYYY hh:mm:ss A')
             });
           }
+          
           $scope.gridOptions.data = gridData;
         };
 
