@@ -23,6 +23,8 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
         };
 
         $scope.button_clicked = false;
+        $scope.show_success = false;
+        $scope.show_error = false;
 
         $scope.gridOptions = {
           enableColumnMenus: false,
@@ -125,6 +127,14 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
         var resubmitForm = function() {
           if (resubmittedForms.length === 0) {
             $scope.button_clicked = false;  
+            $scope.show_success = true;
+
+            window.setTimeout(function() {
+                $scope.$apply(function() {
+                  $scope.show_success = false;
+                });
+            }, 4000);
+
             return;
           }
           var form = resubmittedForms.pop()['form'];
@@ -134,6 +144,13 @@ angular.module('forms').directive('resubmitDirective', ['$http', '$rootScope', '
               resubmitForm();
             })
             .error(function(error) {
+              $scope.button_clicked = false;
+              $scope.show_error = true;
+              window.setTimeout(function() {
+                  $scope.$apply(function() {
+                    $scope.show_error = false;
+                  });
+              }, 4000);
               console.log('Form failed sending');
             });
         }
