@@ -151,11 +151,11 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         if ('ontouchstart' in window) {
           setTimeout(function() {
             $(document).on('focus', 'textarea,input,select', function() {
-              $('.navbar.navbar-fixed-top').css('position', 'absolute');
+              $('.navbar.navbar-fixed-top').css('position', 'fixed');
             }).on('blur', 'textarea,input,select', function() {
-              $('.navbar.navbar-fixed-top').css('position', '');
+              $('.navbar.navbar-fixed-top').css('position', 'fixed');
             });
-          }, 0);  
+          }, 0);
         }
 
         //Reload our form
