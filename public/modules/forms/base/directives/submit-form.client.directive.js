@@ -161,21 +161,27 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         //  }, 800);
         //  });
 
-        $('input, textarea')
-          .on('focus', function(e) {
-            $('[data-role=header],[data-role=footer]').css('position', 'fixed');
+        // $('input, textarea')
+        //   .on('focus', function(e) {
+        //     $('[data-role=header],[data-role=footer]').css('position', 'fixed');
+        //
+        //     setTimeout(function() {
+        //       window.scrollTo($.mobile.window.scrollLeft(), $.mobile.window.scrollTop());
+        //     }, 20);
+        //   })
+        //   .on('blur', function(e) {
+        //     $('[data-role=header],[data-role=footer]').css('position', 'fixed');
+        //     //force page redraw to fix incorrectly positioned fixed elements
+        //     setTimeout(function() {
+        //       window.scrollTo($.mobile.window.scrollLeft(), $.mobile.window.scrollTop());
+        //     }, 20);
+        //   });
 
-            setTimeout(function() {
-              window.scrollTo($.mobile.window.scrollLeft(), $.mobile.window.scrollTop());
-            }, 20);
-          })
-          .on('blur', function(e) {
-            $('[data-role=header],[data-role=footer]').css('position', 'fixed');
-            //force page redraw to fix incorrectly positioned fixed elements
-            setTimeout(function() {
-              window.scrollTo($.mobile.window.scrollLeft(), $.mobile.window.scrollTop());
-            }, 20);
-          });
+        $(document).on('blur', 'input, textarea', function() {
+          setTimeout(function() {
+            window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+          }, 0);
+        });
 
         //Reload our form
         $scope.reloadForm();
