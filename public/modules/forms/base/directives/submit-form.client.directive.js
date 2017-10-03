@@ -148,9 +148,26 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           }, 500);
         };
 
+        // $(document).on('focus','input', function() {
+        //  setTimeout(function() {
+        //             $('#footer1').css('position', 'absolute');
+        //             $('#header1').css('position', 'absolute');
+        //  }, 0);
+        //  });
+        //  $(document).on('blur','input', function() {
+        //  setTimeout(function() {
+        //                        $('#footer1').css('position', 'fixed');
+        //                        $('#header1').css('position', 'fixed');
+        //  }, 800);
+        //  });
+
         $('input, textarea')
           .on('focus', function(e) {
             $('[data-role=header],[data-role=footer]').css('position', 'fixed');
+
+            setTimeout(function() {
+              window.scrollTo($.mobile.window.scrollLeft(), $.mobile.window.scrollTop());
+            }, 20);
           })
           .on('blur', function(e) {
             $('[data-role=header],[data-role=footer]').css('position', 'fixed');
