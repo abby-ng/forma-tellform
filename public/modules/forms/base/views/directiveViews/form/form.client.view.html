@@ -37,11 +37,10 @@
 					 ng-class="{ activeField: selected._id == field._id }">
 				<field-directive field="field" forms="forms"></field-directive>
 			</div>
-			<div class="empty-div"></div>
 		</form>
 	</div>
 
-	<section ng-if="!myform.hideFooter" class="navbar navbar-fixed-bottom form-button-panel">
+	<section ng-if="!myform.hideFooter" class="hidden-xs navbar navbar-fixed-bottom form-button-panel">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 col-sm-6 col-xs-12" ng-show="!myform.submitted">
@@ -70,6 +69,46 @@
 					</button>
 					<button ng-if="forms.myForm.$invalid"
 									class="btn btn-lg col-xs-5 focusOn review-btn"
+									ng-click="goToInvalid()"
+									on-enter-key="goToInvalid()"
+									on-enter-key-disabled="!forms.myForm.$invalid">
+						{{ 'REVIEW' | translate }}
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section ng-if="!myform.hideFooter" class="hidden-sm hidden-md hidden-lg navbar navbar-fixed-top form-button-panel">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8" ng-show="!myform.submitted">
+					<div ng-if="answered_percent >= 0" class="progress-container col-xs-6">
+						<uib-progressbar class="answered progress-striped"
+														 value="answered_percent"
+														 type="warning">
+							{{ answered_percent === 0? '' : answered_percent + '%' }}
+						</uib-progressbar>
+					</div>
+					<div ng-if="mandatory_answered_percent >= 0" class="progress-container col-xs-6">
+						<uib-progressbar class="need-complete progress-striped"
+														 value="mandatory_answered_percent"
+														 type="warning">
+							{{ mandatory_answered_percent === 0? '' : mandatory_answered_percent + '%' }}
+						</uib-progressbar>
+					</div>
+				</div>
+				<div class="col-xs-4">
+					<button ng-if="!forms.myForm.$invalid"
+						class="btn btn-lg col-xs-12 focusOn submit-btn"
+						ng-click="submitForm()"
+						ng-disabled="button_clicked || forms.myForm.$invalid || myform.isPreview"
+						on-enter-key="submitForm()"
+						on-enter-key-disabled="button_clicked || forms.myForm.$invalid"><span ng-show="button_clicked"><i class="glyphicon glyphicon-refresh spinning"></i></span>
+						{{ 'SUBMIT' | translate }}
+					</button>
+					<button ng-if="forms.myForm.$invalid"
+									class="btn btn-lg col-xs-12 focusOn review-btn"
 									ng-click="goToInvalid()"
 									on-enter-key="goToInvalid()"
 									on-enter-key-disabled="!forms.myForm.$invalid">
