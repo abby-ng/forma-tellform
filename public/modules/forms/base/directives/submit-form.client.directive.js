@@ -149,13 +149,13 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         };
 
         if ('ontouchstart' in window) {
-          $(document).on('focus', 'textarea,input,select', function() {
-            console.log('=========onfocus');
-            $('.navbar.navbar-fixed-top').css('position', 'absolute');
-          }).on('blur', 'textarea,input,select', function() {
-            console.log('=========onblur');
-            $('.navbar.navbar-fixed-top').css('position', '');
-          });
+          setTimeout(function() {
+            $(document).on('focus', 'textarea,input,select', function() {
+              $('.navbar.navbar-fixed-top').css('position', 'absolute');
+            }).on('blur', 'textarea,input,select', function() {
+              $('.navbar.navbar-fixed-top').css('position', '');
+            });
+          }, 0);  
         }
 
         //Reload our form
