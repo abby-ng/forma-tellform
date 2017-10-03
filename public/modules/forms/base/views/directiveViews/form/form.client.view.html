@@ -87,6 +87,7 @@
 			<div class="row">
 				<div class="col-xs-8" ng-show="!myform.submitted">
 					<div ng-if="answered_percent >= 0" class="progress-container col-xs-6">
+						<small><em>Answered</em></small>
 						<uib-progressbar class="answered progress-striped"
 														 value="answered_percent"
 														 type="warning">
@@ -94,6 +95,7 @@
 						</uib-progressbar>
 					</div>
 					<div ng-if="mandatory_answered_percent >= 0" class="progress-container col-xs-6">
+						<small><em>Mandatory</em></small>
 						<uib-progressbar class="need-complete progress-striped"
 														 value="mandatory_answered_percent"
 														 type="warning">

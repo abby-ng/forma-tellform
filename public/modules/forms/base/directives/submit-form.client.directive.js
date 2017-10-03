@@ -148,6 +148,14 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           }, 500);
         };
 
+        if ('ontouchstart' in window) {
+          $(document).on('focus', 'textarea,input,select', function() {
+            $('.navbar.navbar-fixed-top').css('position', 'absolute');
+          }).on('blur', 'textarea,input,select', function() {
+            $('.navbar.navbar-fixed-top').css('position', '');
+          });
+        }
+
         //Reload our form
         $scope.reloadForm();
       }
