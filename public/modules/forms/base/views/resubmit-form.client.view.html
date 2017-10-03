@@ -1,8 +1,52 @@
-<section ng-hide="!myform.isPreview && !myform.isLive" class="public-form submit-form">
+<section ng-hide="!myform.isLive" class="public-form submit-form">
 		<!-- Header View on all pages -->
 	<div class="form-header" ng-hide="!myform.hasHeader">
 		<img src="{{myform.admin.agency.logo}}">
 		<div class="form-header-title">{{myform.title}}</div>
 	</div>
-	<resubmit-directive myform="myform"></resubmit-directive>
+
+	<div class="submissions-table container">
+
+	<div class="button-filter-bar row">
+	<div class="button-panel col-md-4 col-xs-4">
+		<small>
+			<button class="btn btn-danger btn-resubmit"
+							ng-click="deleteSubmissions()"
+							ng-disabled="!selectedRows || selectedRows.length === 0 || button_clicked">
+				<i class="glyphicon glyphicon-trash"></i>
+				<span class="hidden-xs hidden-sm"><span ng-show="button_clicked"><i class="glyphicon glyphicon-refresh spinning"></i></span>{{ 'DELETE' | translate }}</span>
+			</button>
+		</small>
+		<small>
+			<button class="btn btn-default btn-resubmit"
+							ng-click="resubmitSubmissions()"
+							ng-disabled="!selectedRows || selectedRows.length === 0 || button_clicked">
+				<i class="glyphicon glyphicon-random"></i>
+				<span class="hidden-xs hidden-sm"><span ng-show="button_clicked"><i class="glyphicon glyphicon-refresh spinning"></i></span>{{ 'RESUBMIT' | translate }}</span>
+			</button>
+		</small>
+	</div>
+
+	<div class="col-md-4 col-xs-4 resubmit-message">
+		<div data-ng-show="show_error" class="text-danger">
+			<strong>Resubmitting failed.</strong>
+		</div>
+		<div data-ng-show="show_success" class="text-success">
+			<strong>Resubmit was successful.</strong>
+		</div>
+	</div>
+
+	<div class="col-md-4 col-xs-4"></div>
+	</div>
+
+
+	<div ng-if="gridOptions.totalItems && gridOptions.data"
+			 class="grid"
+			 ui-grid="gridOptions"
+			 ui-grid-pagination
+			 ui-grid-selection>
+	</div>
+
+	</div>
+
 </section>

@@ -44,9 +44,6 @@ angular.module('forms').config(['$stateProvider',
 		}).state('resubmitForm', {
 			url: '/forms/:agency/:formId/resubmit',
 			templateUrl: 'modules/forms/base/views/resubmit-form.client.view.html',
-			data: {
-				hideNav: true
-			},
 			resolve: {
 				Forms: 'Forms',
 				myForm: function (Forms, $stateParams) {
@@ -54,7 +51,7 @@ angular.module('forms').config(['$stateProvider',
 					return formToGet.$promise;
 				}
 			},
-			controller: 'SubmitFormController',
+			controller: 'ResubmitFormController',
 			controllerAs: 'ctrl'
 		}).state('viewForm', {
 			url: '/forms/:agency/:formId/admin',
