@@ -75,6 +75,10 @@ div.start-end-page .form-actions .btn {
   position: relative;
 }
 
+.field-directive:nth-last-child(2) > field-directive > .dropdown {
+  margin-bottom: 220px;
+}
+
 /* Form button panel */
 .form-button-panel {
   background-color: white;
