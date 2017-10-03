@@ -86,6 +86,8 @@
 
   /* Form button panel */
   .form-button-panel.navbar-fixed-top {
+    position: fixed !important;
+    top: 0px !important;
     background-color: #ddd;
     min-height: 0;
     padding: 5px 0;

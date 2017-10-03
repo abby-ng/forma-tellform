@@ -177,16 +177,16 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         //     }, 20);
         //   });
 
-        if ('ontouchstart' in window) {
-          $(document).on('focus', 'textarea,input,select', function() {
-            $('.navbar.navbar-fixed-top').css('position', 'absolute');
-          }).on('blur', 'textarea,input,select', function() {
-            $('.navbar.navbar-fixed-top').css('position', '');
-          });
-          setTimeout(function() {
-            window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
-          }, 100);
-        }
+        // if ('ontouchstart' in window) {
+        //   $(document).on('focus', 'textarea,input,select', function() {
+        //     $('.navbar.navbar-fixed-top').css('position', 'absolute');
+        //   }).on('blur', 'textarea,input,select', function() {
+        //     $('.navbar.navbar-fixed-top').css('position', '');
+        //   });
+        //   setTimeout(function() {
+        //     window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+        //   }, 100);
+        // }
 
         // $(document).on('blur', 'input, textarea', function() {
         //   setTimeout(function() {
