@@ -79,7 +79,10 @@
 		</div>
 	</section>
 
-	<section ng-if="!myform.hideFooter" class="hidden-sm hidden-md hidden-lg navbar navbar-fixed-top form-button-panel">
+	<section ng-if="!myform.hideFooter"
+					 class="hidden-sm hidden-md hidden-lg navbar navbar-fixed-top form-button-panel"
+					 data-tap-toggle="false"
+					 data-hide-during-focus="false">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xs-8" ng-show="!myform.submitted">

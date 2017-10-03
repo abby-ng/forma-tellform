@@ -54,6 +54,7 @@ form .row.field .field-input .ng-invalid.ng-dirty > .selectize-input.focus {
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(250, 120, 126,.6)
 }
 form .row.field .field-input .selectize-input.focus,
+form .row.field .field-input .selectize-input.selectize-focus,
 form .row.field .field-input .ng-valid > .selectize-input.selectize-focus {
   border: 1px solid #66afe9 !important;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
@@ -66,6 +67,9 @@ form .row.field .field-input textarea {
 form .row.field.date-field .field-input input {
   background-color: white;
   z-index: 5;
+}
+form .field-directive:last-child .date-field {
+  margin-bottom: 260px;
 }
 
 /* Statement & section field */
@@ -113,12 +117,20 @@ form .yes-no .field-input .switch-light input:checked ~ span span:nth-child(2) {
 form .row.field.dropdown .field-input .selectize-input {
   z-index: 5;
 }
+form .field-directive:last-child .dropdown {
+  margin-bottom: 220px;
+}
 
 /* Rating */
-form .activeField .row.field.rating .angular-input-stars {
+form .row.field.rating .angular-input-stars {
+  outline: 0;
+}
+form .activeField .row.field.rating .angular-input-stars,
+form .row.field.rating .angular-input-stars:focus {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);;
 }
-form .activeField .row.field.rating  .angular-input-stars.ng-invalid.ng-dirty {
+form .activeField .row.field.rating .angular-input-stars.ng-invalid.ng-dirty,
+form .row.field.rating .angular-input-stars.ng-invalid.ng-dirty:focus {
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(250, 120, 126,.6)
 }
 
