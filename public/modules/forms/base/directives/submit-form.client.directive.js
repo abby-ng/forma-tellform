@@ -36,6 +36,9 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           var mandatory_answered_count = $filter('mandatoryFields')(answered_fields).length;
           var need_completed_count = mandatory_count - mandatory_answered_count;
 
+          $scope.answered_percent = Math.floor(answered_count * 100 / response_fields_count);
+          $scope.mandatory_answered_percent = Math.floor(mandatory_answered_count * 100 / mandatory_count);
+
           return {
             done: answered_count,
             total: response_fields_count,
@@ -93,7 +96,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
 
           if (animateScroll) {
             setTimeout(function() {
-              $document.scrollToElement(angular.element('.activeField'), -10, 200).then(function() {
+              $document.scrollToElement(angular.element('.activeField'), 50, 200).then(function() {
                 focusActiveField(field);
               });
             }, 200);

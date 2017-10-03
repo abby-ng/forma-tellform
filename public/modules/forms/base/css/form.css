@@ -3,7 +3,7 @@
   color:black !important;
   padding: 20px 16.2222222%;
   overflow-wrap:normal;
-  border-bottom:2px black solid;
+  border-bottom: 2px black solid;
   z-index: 11;
 }
 
@@ -23,11 +23,104 @@
   .public-form .form-header {
     font-size:30px;
   }
+  .field-directive:last-child {
+    margin-bottom: 150px;
+  }
+
+  /* Form button panel */
+  .form-button-panel {
+    background-color: white;
+    padding-top: 15px;
+    border-top: 2px solid;
+  }
+  .form-button-panel .btn {
+    margin: 10px auto;
+  }
+  .form-button-panel .btn:focus {
+    outline: 0;
+  }
+  .form-button-panel .btn:not(:first-child) {
+    margin-left: 10px;
+  }
+  .form-button-panel p {
+    margin: 0;
+  }
+  .form-button-panel .answered {
+    font-size: 30px;
+  }
+  .form-button-panel .need-complete {
+    color: #BE0000;
+    font-weight: bold;
+  }
+  .form-button-panel .btn.up-down-btn {
+    background-color: white;
+  }
+  .form-button-panel .btn.review-btn,
+  .form-button-panel .btn.submit-btn {
+    float: right;
+  }
+  .form-button-panel .btn.review-btn {
+    background-color: #BE0000;
+    color: white !important;
+  }
+
+  .form-button-panel .btn.up-down-btn:focus,
+  .form-button-panel .btn.submit-btn:focus {
+    border: 1px solid #66afe9 !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
+  }
+  .form-button-panel .btn.review-btn:focus {
+    border: 1px solid #FA787E !important;
+  	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(250, 120, 126,.6)
+  }
 }
 
 @media not all and (min-width: 768px) {
   .public-form .form-header {
     font-size:25px;
+    margin-top: 33px;
+  }
+  .field-directive:last-child {
+    margin-bottom: 60px;
+  }
+
+  /* Form button panel */
+  .form-button-panel.navbar-fixed-top {
+    background-color: #ddd;
+    min-height: 0;
+    padding: 5px 0;
+    border-top: 0;
+  }
+  .form-button-panel .progress-container {
+    padding-left: 0;
+  }
+  .form-button-panel .progress {
+    margin-bottom: 0;
+    border: 1px solid grey;
+  }
+  .form-button-panel .answered .progress-bar {
+    background-color: grey;
+  }
+  .form-button-panel .need-complete .progress-bar {
+    background-color: #BE0000;
+  }
+  .form-button-panel .btn.review-btn,
+  .form-button-panel .btn.submit-btn {
+    background-color: #ddd;
+    padding: 0;
+    border: 0;
+    float: right;
+    font-size: 1em !important;
+  }
+  .form-button-panel .btn.submit-btn {
+    color: black !important;
+  }
+  .form-button-panel .btn.review-btn {
+    color: #BE0000 !important;
+  }
+  .form-button-panel .btn.review-btn:focus {
+    outline-color: #BE0000;
+    outline-width: 2px;
   }
 }
 
@@ -45,9 +138,6 @@
 }
 .public-form.submit-form .btn[disabled] {
   opacity: 0.3;
-}
-.public-form.submit-form .empty-div {
-  min-height: 20vh;
 }
 
 /* Start page & end page */
@@ -73,59 +163,4 @@ div.start-end-page .form-actions .btn {
 .field-directive {
   padding: 10px;
   position: relative;
-}
-
-/* Form button panel */
-.form-button-panel {
-  background-color: white;
-  padding-top: 15px;
-  border-top: 2px solid;
-}
-.form-button-panel .btn {
-  margin: 10px auto;
-}
-.form-button-panel .btn:focus {
-  outline: 0;
-}
-.form-button-panel .btn:not(:first-child) {
-  margin-left: 10px;
-}
-.form-button-panel p {
-  margin: 0;
-}
-.form-button-panel .answered {
-  font-size: 30px;
-}
-.form-button-panel .need-complete {
-  color: #BE0000;
-  font-weight: bold;
-}
-.form-button-panel .btn.up-down-btn {
-  background-color: white;
-}
-.form-button-panel .btn.review-btn,
-.form-button-panel .btn.submit-btn {
-  float: right;
-}
-.form-button-panel .btn.review-btn {
-  background-color: #BE0000;
-  color: white;
-}
-
-.form-button-panel .btn.up-down-btn:focus,
-.form-button-panel .btn.submit-btn:focus {
-  border: 1px solid #66afe9 !important;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
-}
-.form-button-panel .btn.review-btn:focus {
-  border: 1px solid #FA787E !important;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(250, 120, 126,.6)
-}
-
-@media not all and (min-width: 768px) {
-  .form-button-panel .answered,
-  .form-button-panel .need-complete {
-    text-align: center;
-    font-size: inherit;
-  }
 }
