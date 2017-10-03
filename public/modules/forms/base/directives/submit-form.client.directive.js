@@ -177,11 +177,22 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         //     }, 20);
         //   });
 
-        $(document).on('blur', 'input, textarea', function() {
+        if ('ontouchstart' in window) {
+          $(document).on('focus', 'textarea,input,select', function() {
+            $('.navbar.navbar-fixed-top').css('position', 'absolute');
+          }).on('blur', 'textarea,input,select', function() {
+            $('.navbar.navbar-fixed-top').css('position', '');
+          });
           setTimeout(function() {
             window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
-          }, 0);
-        });
+          }, 100);
+        }
+
+        // $(document).on('blur', 'input, textarea', function() {
+        //   setTimeout(function() {
+        //     window.scrollTo(document.body.scrollLeft, document.body.scrollTop);
+        //   }, 0);
+        // });
 
         //Reload our form
         $scope.reloadForm();
