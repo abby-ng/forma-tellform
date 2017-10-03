@@ -150,10 +150,10 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
 
         if ('ontouchstart' in window) {
           setTimeout(function() {
-            $(document).on('focus', 'textarea,input,select', function() {
-              $('.navbar.navbar-fixed-top').css('position', 'fixed');
+            $document.on('focus', 'textarea,input,select', function() {
+              $('.navbar.navbar-fixed-top').css('position', 'absolute');
             }).on('blur', 'textarea,input,select', function() {
-              $('.navbar.navbar-fixed-top').css('position', 'fixed');
+              $('.navbar.navbar-fixed-top').css('position', '');
             });
           }, 0);
         }
