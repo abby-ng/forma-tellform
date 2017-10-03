@@ -148,6 +148,18 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           }, 500);
         };
 
+        $('input, textarea')
+          .on('focus', function(e) {
+            $('[data-role=header],[data-role=footer]').css('position', 'fixed');
+          })
+          .on('blur', function(e) {
+            $('[data-role=header],[data-role=footer]').css('position', 'fixed');
+            //force page redraw to fix incorrectly positioned fixed elements
+            setTimeout(function() {
+              window.scrollTo($.mobile.window.scrollLeft(), $.mobile.window.scrollTop());
+            }, 20);
+          });
+
         //Reload our form
         $scope.reloadForm();
       }
