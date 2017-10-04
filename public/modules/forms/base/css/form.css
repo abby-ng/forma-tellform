@@ -46,9 +46,6 @@
 .public-form.submit-form .btn[disabled] {
   opacity: 0.3;
 }
-.public-form.submit-form .empty-div {
-  min-height: 20vh;
-}
 
 /* Start page & end page */
 div.start-end-page {
@@ -75,11 +72,22 @@ div.start-end-page .form-actions .btn {
   position: relative;
 }
 
-.field-directive:nth-last-child(2) > field-directive > .dropdown {
-  margin-bottom: 220px;
-}
-
 /* Form button panel */
+@media all and (min-width: 768px) {
+  .field-directive:last-child {
+    margin-bottom: 150px;
+  }
+}
+@media not all and (min-width: 768px) {
+  .field-directive:last-child {
+    margin-bottom: 55px;
+  }
+  .form-button-panel {
+    position: relative;
+    margin-left: -13%;
+    margin-right: -13%;
+  }
+}
 .form-button-panel {
   background-color: white;
   padding-top: 15px;
