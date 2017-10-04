@@ -82,6 +82,12 @@ div.start-end-page .form-actions .btn {
   .field-directive:last-child {
     margin-bottom: 55px;
   }
+  .field-directive:last-child .date-field {
+    margin-bottom: 185px;
+  }
+  .field-directive:last-child .dropdown {
+    margin-bottom: 150px;
+  }
   .form-button-panel {
     position: relative;
     margin-left: -13%;
