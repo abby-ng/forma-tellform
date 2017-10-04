@@ -75,18 +75,30 @@ div.start-end-page .form-actions .btn {
 /* Form button panel */
 @media all and (min-width: 768px) {
   .field-directive:last-child {
-    margin-bottom: 150px;
+    margin-bottom: 175px;
+  }
+  .field-directive:last-child .section {
+    margin-bottom: 20px;
+  }
+  .field-directive:last-child .statement {
+    margin-bottom: 120px;
   }
 }
 @media not all and (min-width: 768px) {
   .field-directive:last-child {
-    margin-bottom: 55px;
+    margin-bottom: 65px;
+  }
+  .field-directive:last-child .section {
+    margin-bottom: 35px;
+  }
+  .field-directive:last-child .statement {
+    margin-bottom: 120px;
   }
   .field-directive:last-child .date-field {
-    margin-bottom: 185px;
+    margin-bottom: 180px;
   }
   .field-directive:last-child .dropdown {
-    margin-bottom: 150px;
+    margin-bottom: 140px;
   }
   .form-button-panel {
     position: relative;
