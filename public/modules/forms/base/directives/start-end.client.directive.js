@@ -11,17 +11,16 @@ angular.module('forms').directive('startEndDirective', ['$compile', '$rootScope'
       },
       link: function(scope, element) {
 
-        console.log('in start end directive')
-        console.log(scope)
+        scope.exitStartPage = $rootScope.exitStartPage;
+        scope.reloadForm = $rootScope.reloadForm;
 
         var templateUrl = 'modules/forms/base/views/directiveViews/start-end/';
         templateUrl = templateUrl + scope.page.type + '.html';
         var template = $templateCache.get(templateUrl);
-        console.log(templateUrl)
-        console.log(template)
 
         element.html(template).show();
         var output = $compile(element.contents())(scope);
+
       }
     };
   }

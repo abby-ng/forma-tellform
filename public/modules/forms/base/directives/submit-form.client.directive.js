@@ -43,7 +43,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           }
         };
 
-        $scope.reloadForm = function() {
+        $scope.reloadForm = $rootScope.reloadForm = function() {
           //Reset Form
           $scope.myform.submitted = false;
           $scope.myform.form_fields = _.chain($scope.myform.form_fields).map(function(field) {
@@ -117,7 +117,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         /*
          ** Form Display Functions
          */
-        $scope.exitStartPage = function() {
+        $rootScope.exitStartPage = function() {
           $scope.myform.startPage.showStart = false;
           if ($scope.myform.form_fields.length > 0) {
             initFocus();

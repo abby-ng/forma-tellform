@@ -35,9 +35,6 @@ angular.module('forms').directive('fieldDirective', ['$compile', '$rootScope', '
       },
       link: function(scope, element) {
 
-        console.log('in field client directive')
-        console.log(scope)
-
         var fieldType = scope.field.fieldType;
         scope.setActiveField = $rootScope.setActiveField;
 
