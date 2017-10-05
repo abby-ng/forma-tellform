@@ -89,24 +89,32 @@ var FormSchema = new Schema({
 	},
 
 	startPage: {
+		type:{
+			type: String,
+			default: "startPage"
+		},
 		showStart:{
 			type: Boolean,
 			default: false
 		},
-		introTitle:{
+		title:{
 			type: String,
 			default: 'Welcome to Form'
 		},
-		introParagraph:{
+		paragraph:{
 			type: String
 		},
-        introButtonText:{
+        buttonText:{
             type: String,
             default: 'Start'
         },
 		buttons:[ButtonSchema]
 	},
 	endPage: {
+		type:{
+			type: String,
+			default: "endPage"
+		},
 		showEnd:{
 			type: Boolean,
 			default: false

@@ -110,7 +110,7 @@
 						<div class="col-md-4 col-sm-12">{{ 'INTRO_TITLE' | translate }}:</div>
 						<div class="col-md-8 col-sm-12">
 							<input class="form-control" type="text"
-								   ng-model="myform.startPage.introTitle"
+								   ng-model="myform.startPage.title"
 								   name="introTitleStartPage" required>
 						</div>
 					</div>
@@ -121,7 +121,7 @@
 						<div class="col-md-4 col-sm-12">{{ 'INTRO_PARAGRAPH' | translate }}:</div>
 						<div class="col-md-8 col-sm-12">
                                     <textarea class="form-control" type="text"
-											  ng-model="myform.startPage.introParagraph"
+											  ng-model="myform.startPage.paragraph"
 											  name="introParagraphStartPage"></textarea>
 						</div>
 					</div>
@@ -132,7 +132,7 @@
 						<div class="col-md-4 col-sm-12">{{ 'INTRO_BTN' | translate }}:</div>
 						<div class="col-md-8 col-sm-12">
 							<input class="form-control" type="text"
-								   ng-model="myform.startPage.introButtonText"
+								   ng-model="myform.startPage.buttonText"
 								   name="introButtonText" required>
 						</div>
 					</div>
@@ -150,7 +150,7 @@
 					</div>
 				</div>
 
-				<div class="preview-field-panel col-md-6 hidden-sm hidden-xs container">
+<!-- 				<div class="preview-field-panel col-md-6 hidden-sm hidden-xs container">
 					<form class="public-form">
 
 						<div class="field row">
@@ -179,7 +179,23 @@
 						</div>
 
 					</form>
+				</div> -->
+
+				<div class="preview-field-panel col-md-6 hidden-sm hidden-xs container">
+					<div class="modal-header">
+						<h3 class="modal-title preview-header">{{ 'PREVIEW' | translate }}</h3>
+					</div>
+					<form class="public-form">
+						<start-end-directive page="myform.startPage" validate="false" class="preview-field">
+						</start-end-directive>
+					</form>
 				</div>
+
+
+
+
+
+
 			</div>
 
 		</div>
