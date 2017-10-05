@@ -60,6 +60,7 @@ div.start-end-page .start-end-paragraph {
   font-weight: 100;
   margin-top: 25px;
   margin-bottom: 25px;
+  white-space: pre-wrap;
 }
 div.start-end-page .form-actions {
   padding: 10px;
