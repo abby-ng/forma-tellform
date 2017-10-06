@@ -52,7 +52,6 @@
 
 /* Start page & end page */
 div.start-end-page {
-  padding-top: 15vh;
   overflow-wrap: break-word;
 }
 div.start-end-page .start-end-paragraph {
