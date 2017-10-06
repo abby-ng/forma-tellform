@@ -112,23 +112,7 @@
 
 					<div class="row"><br></div>
 
-					<div class="row">
-						<div class="col-md-4 col-xs-12 field-input">{{ 'SHOW_BUTTONS' | translate }}</div>
-						<div class="col-md-8 col-xs-12 field-input">
-							<label class="switch-light switch-holo" onclick="">
-								<input type="checkbox" ng-model="showButtons">
-								<span>
-									<span> {{ 'OFF' | translate }}</span>
-									<span> {{ 'ON' | translate }}</span>
-									<a></a>
-								</span>
-							</label>
-						</div>
-					</div>
-
-					<div class="row"><br></div>
-
-					<div class="row options buttons" ng-if="showButtons">
+					<div class="row options buttons">
 						<div class="col-md-3 col-xs-12">{{ 'BUTTONS' | translate }}:</div>
 						<div class="col-md-9 col-xs-12">
 							<div ng-repeat="button in myform.startPage.buttons" class="row" style="padding-bottom:1em;">

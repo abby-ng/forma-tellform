@@ -17,18 +17,8 @@ mt.autoSeed();
 var FieldSchema = require('./form_field.server.model.js');
 
 var ButtonSchema = new Schema({
-	url: {
-		type: String,
-	},
-	text: String,
-	bgColor: {
-		type: String,
-		default: '#5bc0de'
-	},
-	color: {
-		type: String,
-		default: '#ffffff'
-	}
+	url: String,
+	text: String
 });
 
 var formSchemaOptions = {

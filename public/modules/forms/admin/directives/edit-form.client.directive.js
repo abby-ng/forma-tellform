@@ -189,8 +189,6 @@ angular.module('forms').directive('editFormDirective', ['$rootScope', 'FormField
 							$scope.addButton = function(){
 
 								var newButton = {};
-								newButton.bgColor = '#ccc';
-								newButton.color = 'white';
 								newButton.text = 'Button';
 
 								$scope.myform.startPage.buttons.push(newButton);
