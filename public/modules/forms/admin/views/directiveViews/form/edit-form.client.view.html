@@ -75,13 +75,82 @@
 			<div class="row">
 				<div class="edit-panel col-md-6 col-xs-12 col-sm-12 container">
 					<div class="row modal-header">
+						<h2 class="modal-title hidden-md hidden-lg">{{ 'EDIT_FIELD' | translate }}</h2>
+						<h3 class="modal-title hidden-xs hidden-sm">{{ 'EDIT_FIELD' | translate }}</h3>
+					</div>
+					<div class="row question">
+						<div class="row question">
+							<div class="col-md-12 bold">{{ 'INTRO_TITLE' | translate }}</div>
+							<div class="col-md-12">
+								<input class="form-control" type="text"
+								ng-model="myform.startPage.title"
+								name="introTitleStartPage" required>
+							</div>
+						</div>
+
+						<div class="row"><br></div>
+
+						<div class="row description">
+							<div class="col-md-12 bold">{{ 'INTRO_PARAGRAPH' | translate }}</div>
+							<div class="col-md-12">
+								<textarea class="form-control" type="text"
+								ng-model="myform.startPage.paragraph"
+								name="introParagraphStartPage"></textarea>
+							</div>
+						</div>
+
+						<div class="row"><br></div>
+
+						<div class="row question">
+							<div class="col-md-12 bold">{{ 'INTRO_BTN' | translate }}</div>
+							<div class="col-md-12">
+								<input class="form-control" type="text"
+								ng-model="myform.startPage.buttonText"
+								name="introButtonText" required>
+							</div>
+						</div>
+
+						<div class="row"><br></div>
+
+						<div class="modal-footer row">
+							<button type="submit" ng-click="saveField()" class="btn btn-signup btn-rounded">
+								{{ 'SAVE_FIELD' | translate }}
+							</button>
+
+							<button ng-click="cancel()" class="btn btn-secondary btn-rounded">
+								{{ 'CANCEL' | translate }}
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="preview-field-panel col-md-6 hidden-sm hidden-xs container">
+					<div class="modal-header">
+						<h3 class="modal-title preview-header">{{ 'PREVIEW' | translate }}</h3>
+					</div>
+					<form class="public-form">
+						<start-end-directive page="myform.startPage" validate="false" class="preview-field">
+						</start-end-directive>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</script>
+
+	<!-- Edit StartPage Modal Dialog Template -->
+	<!-- <script type="text/ng-template" id="editStartPageModal.html" class="edit-startpage-modal">
+		<div class="modal-body">
+			<div class="row">
+				<div class="edit-panel col-md-6 col-xs-12 col-sm-12 container">
+					<div class="row modal-header">
 						<h2 class="modal-title hidden-md hidden-lg">{{ 'EDIT_START_PAGE' | translate }}</h2>
 						<h3 class="modal-title hidden-xs hidden-sm">{{ 'EDIT_START_PAGE' | translate }}</h3>
 					</div>
 
 					<div class="row question">
-						<div class="col-md-4 col-sm-12">{{ 'INTRO_TITLE' | translate }}:</div>
-						<div class="col-md-8 col-sm-12">
+						<div class="col-md-4 col-sm-12">{{ 'INTRO_TITLE' | translate }}</div>
+						<div class="col-md-12 col-sm-12">
 							<input class="form-control" type="text"
 							ng-model="myform.startPage.title"
 							name="introTitleStartPage" required>
@@ -180,7 +249,7 @@
 		</div>
 
 
-	</script>
+	</script> -->
 
 	<!-- Edit Field Modal Dialog Template -->
 	<script type="text/ng-template" id="editFieldModal.html" class="edit-field-modal">
