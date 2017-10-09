@@ -1,8 +1,8 @@
 <!-- Start Page View -->
 <div ng-show="!myform.submitted && myform.startPage.showStart">
 	<form class="start-end-page text-center">
-		<start-end-directive page="myform.startPage" validate="false">
-		</start-end-directive>
+		<page-directive page="myform.startPage" validate="false">
+		</page-directive>
 	</form>
 </div>
 
@@ -79,7 +79,7 @@
 <!-- Custom End Page View -->
 <div ng-if="myform.submitted && !loading && myform.endPage.showEnd">
 	<form class="start-end-page text-center">
-		<start-end-directive page="myform.endPage" validate="false">
-		</start-end-directive>
+		<page-directive page="myform.endPage" validate="false">
+		</page-directive>
 	</form>
 </div>
