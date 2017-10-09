@@ -39,6 +39,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$loca
 					if($state.previous.name !== 'home' && $state.previous.name !== 'verify' && $state.previous.name !== ''){
 						$state.go($state.previous.name);
 					}else{
+						console.log('in AuthenticationController - going to listForms')
 						$state.go('listForms');
 					}
 				},

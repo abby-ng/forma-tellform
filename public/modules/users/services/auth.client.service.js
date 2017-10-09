@@ -56,11 +56,13 @@ angular.module('users').factory('Auth', ['$window',
       },
 
       login: function(new_user) {
+        console.log('in auth.client.service - login')
         userState.isLoggedIn = true;
         service._currentUser = new_user;
       },
 
       logout: function() {
+        console.log('in auth.client.service - logout')
         $window.user = null;
         userState.isLoggedIn = false;
         service._currentUser = null;

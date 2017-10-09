@@ -24,15 +24,17 @@ angular.module('core').controller('HeaderController', ['$rootScope', '$scope', '
 		$scope.menu = Menus.getMenu('topbar');
 
 	    $scope.signout = function() {
+	    	console.log('signout button clicked')
 		    var promise = User.logout();
 			promise.then(function() {
+				console.log('signout promise returned')
 				Auth.logout();
-				Auth.ensureHasCurrentUser(User);
+				// Auth.ensureHasCurrentUser(User);
 				$scope.user = $rootScope.user = null;
-				$state.go('listForms');
+				// $state.go('signin');
 
 				//Refresh view
-				$state.reload();
+				// $state.reload();
 			},
 			function(reason) {
 			  	console.error('Logout Failed: ' + reason);
