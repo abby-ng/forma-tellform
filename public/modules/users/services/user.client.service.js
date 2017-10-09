@@ -30,7 +30,6 @@ angular.module('users').factory('User', ['$window', '$q', '$timeout', '$http', '
       },
       logout: function() {
 
-        console.log('reached logout in user client service')
         var deferred = $q.defer();
         $http.get('/auth/signout').then(function(response) {
           deferred.resolve(null);

@@ -35,13 +35,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$loca
 					$scope.button_clicked = false;
 					Auth.login(response);
 					$scope.user = $rootScope.user = Auth.ensureHasCurrentUser(User);
-
-					if($state.previous.name !== 'home' && $state.previous.name !== 'verify' && $state.previous.name !== ''){
-						$state.go($state.previous.name);
-					}else{
-						console.log('in AuthenticationController - going to listForms')
-						$state.go('listForms');
-					}
+					$state.go('listForms');
 				},
 				function(error) {
 					$scope.button_clicked = false;

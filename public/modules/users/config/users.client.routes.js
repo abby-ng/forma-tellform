@@ -6,14 +6,11 @@ angular.module('users').config(['$stateProvider',
 
 	var checkLoggedin = function($q, $timeout, $state, User, Auth) {
       var deferred = $q.defer();
-      console.log('in user client routes')
 		
       if (Auth.currentUser && Auth.currentUser.email) {
-        console.log('in user client routes - first')
         $timeout(deferred.resolve);
       }
       else {
-      	console.log('in user client routes - second')
         Auth.currentUser = User.getCurrent(
 			function() {
 			  Auth.login();
