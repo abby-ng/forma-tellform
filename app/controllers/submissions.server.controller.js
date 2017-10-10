@@ -148,11 +148,14 @@ exports.count = function(req, res) {
 		.exec(function(err, count) {
 			if (err) {
 				console.error(err);
-				res.status(400).send({
+				console.log('in count - 1 ')
+				return res.status(400).send({
 					message: errorHandler.getErrorMessage(err)
 				});
+			} else {
+				console.log('in count - 2 ')
+				res.json(count);
 			}
-			res.json(count);
 		});
 };
 

@@ -21,6 +21,10 @@ angular.module('forms').controller('AdminFormController', ['$rootScope', '$windo
 
         CurrentForm.setForm($scope.myform);
 
+        console.log('in admin form controller')
+        console.log($scope.myform)
+        console.log($scope.user)
+
         // :agency
         $scope.formURL = '/#!/forms/' + $scope.myform.admin.agency.shortName +'/' + $scope.myform._id
         $scope.actualFormURL = window.location.protocol + '//' + window.location.host + $scope.formURL;
