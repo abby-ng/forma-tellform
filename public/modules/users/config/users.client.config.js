@@ -7,9 +7,11 @@ angular.module('users').config(['$httpProvider',
       return {
         responseError: function(response) {
           if (response.status === 401) {
-            $window.location.assign('/#!/signin');
+            console.log('401 access denied ...')
+            // $window.location.assign('/#!/signin');
           } else if(response.status === 403){
-            $window.location.assign('/#!/access_denied');
+            console.log('403 access denied ...')
+            // $window.location.assign('/#!/access_denied');
           }
 
           return $q.reject(response);

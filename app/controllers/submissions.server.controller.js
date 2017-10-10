@@ -129,11 +129,15 @@ exports.list = function(req, res) {
 	query.exec(function(err, _submissions) {
 		if (err) {
 			console.error(err);
-			res.status(400).send({
+			console.log('in list - 1')
+			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
+		} else {
+			console.log('in list - 2')
+			res.json(_submissions);
 		}
-		res.json(_submissions);
+		
 	});
 };
 
@@ -144,19 +148,20 @@ exports.count = function(req, res) {
 	var searchCriteria = getSearchCriteria(req);
 	var query = Submission.find(searchCriteria);
 
-	query.count()
-		.exec(function(err, count) {
-			if (err) {
-				console.error(err);
-				console.log('in count - 1 ')
-				return res.status(400).send({
-					message: errorHandler.getErrorMessage(err)
-				});
-			} else {
-				console.log('in count - 2 ')
-				res.json(count);
-			}
-		});
+	query.count().exec(function(err, count) {
+		if (err) {
+			console.error(err);
+			console.log('in count - 1 ')
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			console.log('in count - 2 ')
+			console.log(count)
+			return res.json(count);
+		}
+	});
+
 };
 
 var getSearchCriteria = function(req) {
@@ -190,7 +195,7 @@ exports.hasAuthorization = function(req, res, next) {
 	var form = req.form;
 	if (req.form.admin.id !== req.user.id && 
 		req.form.collaborators.indexOf(req.user.email) < 0) {
-		res.status(403).send({
+		return res.status(403).send({
 			message: 'User ' + req.user.username + ' is not authorized to edit Form: ' + form.title
 		});
 	}
