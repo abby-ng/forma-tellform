@@ -76,7 +76,6 @@
 				</div>
 			</div>
 		</form>
-
 		<div data-ng-repeat="form in myforms"
             class="col-xs-6 col-xs-offset-3 col-sm-4 col-sm-offset-1 col-md-3 col-md-offset-1 form-item container"
 			 ng-class="{'paused': !form.isLive}">
@@ -90,7 +89,7 @@
 
 			<div class="row">
 			<!-- :agency -->
-				<a data-ng-href="#!/forms/{{user.agency.shortName}}/{{form._id}}/admin/create"
+				<a data-ng-href="#!/forms/{{form.admin.agency.shortName}}/{{form._id}}/admin/create"
 					class="title-row col-xs-12">
 					<div class="form-admin" ng-if="user._id === form.admin._id">Admin</div>
 					<h4 class="list-group-item-heading" data-ng-bind="form.title" uib-tooltip="{{ form.title }}" tooltip-placement="bottom" tooltip-trigger="click mouseenter"></h4>
