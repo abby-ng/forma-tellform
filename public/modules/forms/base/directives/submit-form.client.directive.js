@@ -76,9 +76,8 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
 
           $scope.selected = {
             _id: '',
-            index: 1
+            index: 0
           };
-          initFocus();
         };
 
         /*
@@ -149,9 +148,6 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
 
         $scope.exitStartPage = function() {
           $scope.myform.startPage.showStart = false;
-          if ($scope.myform.form_fields.length > 0) {
-            initFocus();
-          }
         };
 
         $rootScope.goToInvalid = $scope.goToInvalid = function() {
