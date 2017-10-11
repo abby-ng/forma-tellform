@@ -44,6 +44,9 @@ exports.read = function(req, res) {
 	var currForm = req.form.toJSON();
 	if (req.form.isLive || (req.user && req.user.id == req.form.admin.id) || 
 		(req.user && req.form.collaborators.indexOf(req.user.email) > -1)) {
+		console.log('isLive', req.form.isLive)
+		console.log('isAdmin', req.user && req.user.id == req.form.admin.id)
+		console.log('isCollaborator', req.user && req.form.collaborators.indexOf(req.user.email) > -1)
 		return res.json(req.form.toJSON());
 	}
 	return res.status(403).send({
