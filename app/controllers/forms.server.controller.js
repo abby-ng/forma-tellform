@@ -173,7 +173,12 @@ exports.list = function(req, res) {
 	var searchFields = [{collaborators: req.user.email}, {admin: req.user}];
 	var returnedFields = '_id title isLive admin';
 
-	Form.find({$or:  searchFields}, returnedFields).sort('title').populate('admin').exec(function(err, forms) {
+	Form.find({$or:  searchFields}, returnedFields).sort('title').populate({
+		path: 'admin',
+		populate: {
+			path: 'agency'
+		}
+	}).exec(function(err, forms) {
 			if (err) {
 			res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
