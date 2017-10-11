@@ -74,14 +74,12 @@ angular.module('forms').directive('editSubmissionsDirective', ['$rootScope', '$h
 								getPageOptions.sortField = sortColumns[0].field;
 								getPageOptions.sortDirection = sortColumns[0].sort.direction === 'asc' ? 1 : -1;
 							}
-							console.log('at first getpage')
 							getPage();
 						});
 
 						gridApi.pagination.on.paginationChanged($scope, function(newPage, pageSize) {
 							getPageOptions.pageNumber = newPage;
 							getPageOptions.pageSize = pageSize;
-							console.log('at second getpage')
 							getPage();
 						});
 
@@ -168,7 +166,6 @@ angular.module('forms').directive('editSubmissionsDirective', ['$rootScope', '$h
 					getPage();
 				}
 
-				console.log('at third getpage')
 				getPage();
 			}
 		};

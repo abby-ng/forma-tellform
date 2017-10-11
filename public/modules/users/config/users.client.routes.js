@@ -19,7 +19,6 @@ angular.module('users').config(['$stateProvider',
 			function() {
 			  Auth.logout();
 			  $timeout(deferred.reject());
-			  console.log('redirect to signin from user client routes')
 			  $state.go('signin', {reload: true});
 			});
       }

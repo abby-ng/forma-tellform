@@ -129,12 +129,10 @@ exports.list = function(req, res) {
 	query.exec(function(err, _submissions) {
 		if (err) {
 			console.error(err);
-			console.log('in list - 1')
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			console.log('in list - 2')
 			res.json(_submissions);
 		}
 		
@@ -151,13 +149,10 @@ exports.count = function(req, res) {
 	query.count().exec(function(err, count) {
 		if (err) {
 			console.error(err);
-			console.log('in count - 1 ')
 			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
-			console.log('in count - 2 ')
-			console.log(count)
 			return res.json(count);
 		}
 	});
