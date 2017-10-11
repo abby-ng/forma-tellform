@@ -6,8 +6,8 @@
 			<div class="row">
 				<div class="edit-panel col-md-6 col-xs-12 col-sm-12 container">
 					<div class="row modal-header">
-						<h2 class="modal-title hidden-md hidden-lg">{{ 'EDIT_FIELD' | translate }}</h2>
-						<h3 class="modal-title hidden-xs hidden-sm">{{ 'EDIT_FIELD' | translate }}</h3>
+						<h2 class="modal-title hidden-md hidden-lg">Edit End Page</h2>
+						<h3 class="modal-title hidden-xs hidden-sm">Edit End Page</h3>
 					</div>
 					<div class="row question">
 						<div class="col-md-12 bold">{{ 'TITLE' | translate }}</div>
@@ -71,8 +71,8 @@
 			<div class="row">
 				<div class="edit-panel col-md-6 col-xs-12 col-sm-12 container">
 					<div class="row modal-header">
-						<h2 class="modal-title hidden-md hidden-lg">{{ 'EDIT_FIELD' | translate }}</h2>
-						<h3 class="modal-title hidden-xs hidden-sm">{{ 'EDIT_FIELD' | translate }}</h3>
+						<h2 class="modal-title hidden-md hidden-lg">Edit Start Page</h2>
+						<h3 class="modal-title hidden-xs hidden-sm">Edit Start Page</h3>
 					</div>
 					<div class="row question">
 						<div class="col-md-12 bold">{{ 'INTRO_TITLE' | translate }}</div>
@@ -107,7 +107,7 @@
 
 					<div class="row"><br></div>
 
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-12 bold col-xs-12">{{ 'BUTTONS' | translate }}</div>
 						<div class="col-md-12 col-xs-12 field-input">
 
@@ -148,7 +148,7 @@
 					</div>
 
 					<div class="row"><br></div>
-
+ -->
 					<div class="modal-footer row">
 						<button type="submit" ng-click="saveStartPage()" class="btn btn-signup btn-rounded">
 							{{ 'SAVE_START_PAGE' | translate }}
@@ -180,8 +180,8 @@
 			<div class="row">
 				<div class="edit-panel col-md-6 col-xs-12 col-sm-12 container">
 					<div class="row modal-header">
-						<h2 class="modal-title hidden-md hidden-lg">{{ 'EDIT_FIELD' | translate }}</h2>
-						<h3 class="modal-title hidden-xs hidden-sm">{{ 'EDIT_FIELD' | translate }}</h3>
+						<h2 class="modal-title hidden-md hidden-lg">Edit {{field.fieldName}}</h2>
+						<h3 class="modal-title hidden-xs hidden-sm">Edit {{field.fieldName}}</h3>
 					</div>
 					<div ng-if="field.fieldType !== 'statement'" class="row question">
 						<div class="col-md-12 bold">{{ 'QUESTION_TITLE' | translate }}</div>
