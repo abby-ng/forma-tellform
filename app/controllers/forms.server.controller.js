@@ -173,8 +173,7 @@ exports.list = function(req, res) {
 	Form.find({$or:  searchFields}, returnedFields).sort('title').populate({
 		path: 'admin',
 		populate: {
-			path: 'agency',
-			model: 'Agency'
+			path: 'agency'
 		}
 	}).exec(function(err, forms) {
 			if (err) {
