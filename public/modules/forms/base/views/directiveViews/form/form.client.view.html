@@ -28,6 +28,9 @@
 <!-- Form Fields View -->
 <div ng-show="!myform.submitted && !myform.startPage.showStart" class="form-fields">
 	<div class="row">
+		<div class="form-header-title col-sm-12 col-md-offset-1 col-md-10"><h3>{{myform.title}}</h3></div>
+	</div>
+	<div class="row">
 		<form name="forms.myForm" novalidate class="submission-form col-sm-12 col-md-offset-1 col-md-10">
 			<div ng-if="!field.deletePreserved"
 					 ng-repeat="field in myform.form_fields"
