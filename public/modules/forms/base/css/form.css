@@ -49,7 +49,6 @@
 
 /* Start page & end page */
 div.start-end-page {
-  padding-top: 15vh;
   overflow-wrap: break-word;
 }
 div.start-end-page .start-end-paragraph {
@@ -57,13 +56,20 @@ div.start-end-page .start-end-paragraph {
   font-weight: 100;
   margin-top: 25px;
   margin-bottom: 25px;
+  white-space: pre-wrap;
 }
 div.start-end-page .form-actions {
   padding: 10px;
 }
+
 div.start-end-page .form-actions .btn {
   text-decoration: none;
   min-width: 120px;
+}
+
+div.start-end-page .form-actions .url-btn {
+  background-color: #5bc0de;
+  margin: 25px;
 }
 
 /* Form fields */
