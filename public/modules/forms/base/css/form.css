@@ -3,11 +3,11 @@
   color:black !important;
   padding: 20px 16.2222222%;
   overflow-wrap:normal;
-  border-bottom:2px black solid;
+  /*border-bottom:2px black solid;*/
   z-index: 11;
 }
 
-.public-form .form-header>img {
+.public-form .form-header img {
   display:block;
   max-width:150px;
   max-height:120px;
@@ -15,7 +15,7 @@
   height:auto;
 }
 
-.public-form .form-header>.form-header-title {
+.public-form .form-header-title {
   padding-top: 10px;
 }
 
