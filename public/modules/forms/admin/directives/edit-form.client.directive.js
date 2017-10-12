@@ -40,6 +40,8 @@ angular.module('forms').directive('editFormDirective', ['$rootScope', 'FormField
               var reader = new FileReader();
 
 							$scope.field = curr_field;
+							var fieldTitle = FormFields.types.find(f => f.name === curr_field.fieldType).value;
+							$scope.field.fieldName = fieldTitle;
 							$scope.showLogicJump = false;
 
               if (curr_field.fieldOptionsFromFile) {
