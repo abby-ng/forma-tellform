@@ -6,12 +6,9 @@
   z-index: 11;
 }
 
-.public-form .form-title h2 {
+.public-form .form-title h2,
+.public-form .form-title h3, {
   margin-left: -15px;
-}
-
-.public-form .form-title h3 {
-  margin-left: -35px;
 }
 
 .public-form .form-header img {
