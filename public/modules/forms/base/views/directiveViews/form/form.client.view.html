@@ -33,19 +33,19 @@
 					<p ng-if="forms.myForm.$invalid" class="need-complete">{{ 'COMPLETING_NEEDED' | translate:calculateAdvancement }}</p>
 				</div>
 				<div class="col-md-6 col-sm-6 col-xs-12">
-					<button class="btn btn-lg col-xs-3 up-down-btn" id="focusDownButton"
+					<button class="btn btn-lg col-md-3 col-sm-3 hidden-xs up-down-btn" id="focusDownButton"
 									ng-click="nextField()"
 									ng-disabled="selected.index >= response_fields.length">
 						<i class="fa fa-chevron-down"></i>
 					</button>
-					<button class="btn btn-lg col-xs-3 up-down-btn" id="focusUpButton"
+					<button class="btn btn-lg col-md-3 col-sm-3 hidden-xs up-down-btn" id="focusUpButton"
 									ng-click="prevField()"
 									ng-disabled="!selected.index || selected.index == 1">
             <i class="fa fa-chevron-up"></i>
 					</button>
 
 					<button ng-if="!forms.myForm.$invalid"
-						class="btn btn-lg col-xs-5 focusOn submit-btn"
+						class="btn btn-lg col-md-5 col-sm-5 col-xs-12 focusOn submit-btn"
 						ng-click="submitForm()"
 						ng-disabled="button_clicked || forms.myForm.$invalid || myform.isPreview"
 						on-enter-key="submitForm()"
@@ -53,7 +53,7 @@
 						{{ 'SUBMIT' | translate }}
 					</button>
 					<button ng-if="forms.myForm.$invalid"
-									class="btn btn-lg col-xs-5 focusOn review-btn"
+									class="btn btn-lg col-md-5 col-sm-5 col-xs-12 focusOn review-btn"
 									ng-click="goToInvalid()"
 									on-enter-key="goToInvalid()"
 									on-enter-key-disabled="!forms.myForm.$invalid">
