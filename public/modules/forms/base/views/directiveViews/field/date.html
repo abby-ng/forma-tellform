@@ -1,12 +1,13 @@
 <div class="date-field field row">
-  <div class="col-xs-12 field-title row-fluid">
+  <div class="col-md-12 field-title row-fluid">
 		<h3 class="col-xs-12">
 			<small class="field-number">
 				{{ field.field_number }}
 				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 			</small>
 
-			{{ field.title }}
+			<span class="hidden-xs">{{ field.title }}</span>
+			<span class="small-title hidden-sm hidden-md hidden-lg">{{ field.title }}</span>
 
   		<small class="optional-label" ng-show="!field.required">
   			({{ 'OPTIONAL' | translate }})
@@ -14,7 +15,7 @@
 		</h3>
 
 		<p class="col-xs-12 field-description">
-			<small>{{ field.description }}</small>
+			{{ field.description }}
 		</p>
 	</div>
 	<div class="col-xs-12 field-input">

@@ -3,8 +3,15 @@
   color:black !important;
   padding: 20px 16.2222222%;
   overflow-wrap:normal;
-  /*border-bottom:2px black solid;*/
   z-index: 11;
+}
+
+.public-form .form-title h2 {
+  margin-left: -15px;
+}
+
+.public-form .form-title h3 {
+  margin-left: -35px;
 }
 
 .public-form .form-header img {
@@ -13,10 +20,6 @@
   max-height:120px;
   width:auto;
   height:auto;
-}
-
-.public-form .form-header-title {
-  padding-top: 10px;
 }
 
 @media all and (min-width: 768px) {
