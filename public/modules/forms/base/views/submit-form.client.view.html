@@ -1,4 +1,4 @@
-<section ng-hide="!myform.isPreview && !myform.isLive" class="public-form submit-form">
+<section ng-show="((myform.isPreview && isCollaborator()) || myform.isLive )" class="public-form submit-form">
 	<!-- Header View on all pages -->
 	<div class="form-header" ng-hide="!myform.hasHeader">
 		<img src="{{myform.admin.agency.logo}}">
