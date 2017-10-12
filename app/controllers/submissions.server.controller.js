@@ -39,19 +39,20 @@ exports.delete = function(req, res) {
  */
 exports.create = function(req, res, next) {
 	var form = req.form;
-	var formData = {};
+	var formData = [];
 
 	for (var i = 0; i < req.body.form_fields.length; i++) {
 		var field = req.body.form_fields[i];
-
+		var fieldTuple = [field.title];
 		if (field.fieldType === 'statement' || field.fieldType === 'section') {
 		} else if (field.fieldType === 'yes_no') {
-			formData[field.title] = field.fieldValue == true ? 'Yes' : 'No';
+			fieldTuple.push(field.fieldValue == true ? 'Yes' : 'No');
 		} else if (field.fieldType === 'date') {
-			formData[field.title] = moment(field.fieldValue).tz('Asia/Singapore').format('DD MMM YYYY');
+			fieldTuple.push(moment(field.fieldValue).tz('Asia/Singapore').format('DD MMM YYYY'));
 		} else {
-			formData[field.title] = field.fieldValue;
+			fieldTuple.push(field.fieldValue);
 		}
+		formData.push(fieldTuple);
 	}
 
 	var newSubmission = new Submission({
