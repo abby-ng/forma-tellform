@@ -15,7 +15,7 @@ angular.module('forms').controller('AdminFormController', ['$rootScope', '$windo
 
         $rootScope.isCollaborator = function() {
 
-            if ($scope.user && (($scope.myform.admin._id === $scope.user._id) || ($scope.myform.collaborators.indexOf($scope.user.email)))) {
+            if ($scope.user && (($scope.myform.admin._id === $scope.user._id) || ($scope.myform.collaborators.indexOf($scope.user.email) > -1))) {
                 return true;
             } else {
                 return false
