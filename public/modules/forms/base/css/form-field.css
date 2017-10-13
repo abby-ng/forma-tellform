@@ -9,11 +9,16 @@ form .row.field .field-title h3 {
   margin-top: 0;
   padding: 0;
 }
+form .row.field .field-title .small-title {
+    font-size: 20px;
+}
 form .row.field .field-title .field-number {
 	margin-right: 15px;
 }
 form .row.field .field-title .field-description {
-  margin-left: 25px;
+  margin-left: -15px;
+  font-size: 1em;
+  text-align: justify;
   color: #777;
   white-space: pre-wrap;
 }
@@ -70,14 +75,19 @@ form .row.field.date-field .field-input input {
 
 /* Statement & section field */
 form .row.field.section .field-title {
-  margin: 15px 0;
-  padding-top: 15px;
+  margin-bottom: 15px;
   background-color: lightgrey;
   border-bottom: 2px solid #777;
 }
+form .row.field.section .field-title h2,
+form .row.field.section .field-title h3 {
+  margin-top: 10px !important;
+}
+
 form .row.field.statement > .field-input,
 form .row.field.section > .field-input {
   font-size: 1em;
+  color: #777;
   text-align: justify;
   white-space: pre-wrap;
 }
@@ -85,6 +95,7 @@ form .row.field.section > .field-input {
 /* Yes-no field */
 form .yes-no .field-input .switch-light .alert {
   padding: 13px 10px;
+  margin-bottom: 0px !important;
   border: 1px solid #ccc;
   color: inherit;
   font-weight: normal;

@@ -7,7 +7,8 @@
 				{{index+1}}
 				<i class="fa fa-angle-double-right" aria-hidden="true"></i>
 			</small>
-			{{field.title}}
+            <span class="hidden-xs">{{ field.title }}</span>
+            <span class="small-title hidden-sm hidden-md hidden-lg">{{ field.title }}</span>
 			<span class="optional-label" ng-show="!field.required">{{ 'OPTIONAL' | translate }}</span>
 		</h3>
     	<br>
