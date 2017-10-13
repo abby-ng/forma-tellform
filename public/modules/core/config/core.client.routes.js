@@ -6,3 +6,4 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 		$urlRouterProvider.otherwise('/signin');
 	}
 	]);
+
