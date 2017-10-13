@@ -18,7 +18,8 @@ angular.module('forms').config(['$stateProvider',
 			resolve: {
 				Forms: 'Forms',
 				myForm: function (Forms, $stateParams) {
-					var formToGet = Forms.get($stateParams);
+					var formToGet = Forms.get($stateParams,
+						function(form) { form.isPreview = false });
 					return formToGet.$promise;
 				}
 
