@@ -12,6 +12,7 @@ angular.module('forms').directive('fieldDirective', ['$compile', '$rootScope', '
   function($compile, $rootScope, $templateCache, FormFields) {
 
     var getTemplateUrl = function(fieldType) {
+
       var templateUrl = 'modules/forms/base/views/directiveViews/field/';
 
       var supported_field = FormFields.types.filter(function(field) {
@@ -25,7 +26,7 @@ angular.module('forms').directive('fieldDirective', ['$compile', '$rootScope', '
     };
 
     return {
-      template: '<div>{{field.title}}</div>',
+      template: '<div>{{field}}</div>',
       restrict: 'E',
       scope: {
         field: '=',
@@ -33,6 +34,7 @@ angular.module('forms').directive('fieldDirective', ['$compile', '$rootScope', '
         forms: '='
       },
       link: function(scope, element) {
+
         var fieldType = scope.field.fieldType;
         scope.setActiveField = $rootScope.setActiveField;
 
