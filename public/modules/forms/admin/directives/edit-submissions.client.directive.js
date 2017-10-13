@@ -102,7 +102,6 @@ angular.module('forms').directive('editSubmissionsDirective', ['$rootScope', '$h
 						})
 						.error(function(err) {
 							console.error(err);
-							$scope.error = err.message;
 						});
 
 					$http.get('/forms/' + $scope.myform.admin.agency.shortName + '/' + $scope.myform._id + '/submissions', { params: getPageOptions })
@@ -114,7 +113,6 @@ angular.module('forms').directive('editSubmissionsDirective', ['$rootScope', '$h
 						})
 						.error(function(err) {
 							console.error(err);
-							$scope.error = err.message;
 						});
 				};
 
@@ -135,7 +133,6 @@ angular.module('forms').directive('editSubmissionsDirective', ['$rootScope', '$h
 						})
 						.error(function(err) {
 							console.error(err);
-							$scope.error = err.message;
 						});
 				};
 

@@ -16,7 +16,8 @@ var bowerArray = ['public/lib/angular/angular.min.js',
 	'public/lib/lodash/lodash.min.js',
 	'public/lib/mobile-detect/mobile-detect.js',
 	'public/lib/js-yaml/dist/js-yaml.js',
-	'public/lib/angular-sanitize/angular-sanitize.min.js'];
+	'public/lib/angular-sanitize/angular-sanitize.min.js',
+	'public/lib/angular-local-storage/dist/angular-local-storage.min.js'];
 
 module.exports = function(grunt) {
 	require('jit-grunt')(grunt);

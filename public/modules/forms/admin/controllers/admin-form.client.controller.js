@@ -13,6 +13,16 @@ angular.module('forms').controller('AdminFormController', ['$rootScope', '$windo
             $scope.user = myUser;
         });
 
+        $rootScope.isCollaborator = function() {
+
+            if ($scope.user && (($scope.myform.admin._id === $scope.user._id) || ($scope.myform.collaborators.indexOf($scope.user.email) > -1))) {
+                return true;
+            } else {
+                return false
+            }
+
+        }
+
         $scope.button_clicked  = false;
         $scope.admin_button_clicked  = false;
         $rootScope.saveInProgress = false;

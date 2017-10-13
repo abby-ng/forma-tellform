@@ -1,6 +1,6 @@
 <header data-ng-include="'/static/modules/core/views/header.client.view.html'"></header>
 
-<section class="overlay" ng-if="showCreateModal" ng-click="closeCreateModal()"></section>
+<section class="overlay" ng-if="showCreateModal && authentication.isAuthenticated()" ng-click="closeCreateModal()"></section>
 
 <!-- Modal Delete Dialog Template -->
 <script type="text/ng-template" id="deleteModalListForms.html">
@@ -24,9 +24,7 @@
 		</button>
 	</div>
 </script>
-<script>
-</script>
-<section data-ng-controller="ListFormsController as ctrl" data-ng-init="findAll()" class="container">
+<section data-ng-controller="ListFormsController as ctrl" data-ng-init="findAll()" class="container" data-ng-show="authentication.isAuthenticated()">
 	<br>
 	<!--<div class="row">
 		<div class="col-xs-4 col-xs-offset-4">

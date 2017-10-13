@@ -18,7 +18,8 @@ angular.module('forms').config(['$stateProvider',
 			resolve: {
 				Forms: 'Forms',
 				myForm: function (Forms, $stateParams) {
-					var formToGet = Forms.get($stateParams);
+					var formToGet = Forms.get($stateParams,
+						function(form) { form.isPreview = false });
 					return formToGet.$promise;
 				}
 
@@ -40,6 +41,18 @@ angular.module('forms').config(['$stateProvider',
 				}
 			},
 			controller: 'SubmitFormController',
+			controllerAs: 'ctrl'
+		}).state('resubmitForm', {
+			url: '/forms/:agency/:formId/resubmit',
+			templateUrl: 'modules/forms/base/views/resubmit-form.client.view.html',
+			resolve: {
+				Forms: 'Forms',
+				myForm: function (Forms, $stateParams) {
+					var formToGet = Forms.get($stateParams);
+					return formToGet.$promise;
+				}
+			},
+			controller: 'ResubmitFormController',
 			controllerAs: 'ctrl'
 		}).state('viewForm', {
 			url: '/forms/:agency/:formId/admin',

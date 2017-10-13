@@ -1,8 +1,8 @@
 'use strict';
 
 
-angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootScope', 'Auth',
-  function($http, $filter, $rootScope, Auth) {
+angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootScope', 'Auth', 'localStorageService',
+  function($http, $filter, $rootScope, Auth, localStorageService) {
     return {
       templateUrl: 'modules/forms/base/views/directiveViews/form/form.client.view.html',
       restrict: 'E',
@@ -10,6 +10,26 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         myform: '='
       },
       controller: function($document, $window, $scope) {
+
+        var cleanLocalStorage = function() {
+          // Clear all cached forms that are older than two weeks old
+          var twoWeeks = 2 * 7 * 24 * 60 * 60 * 1000;
+          var allKeys = localStorageService.keys();
+          for (var i = 0; i < allKeys.length; i++) {
+            var formKey = allKeys[i];
+            var forms = localStorageService.get(formKey);
+            var cleanedForms = _.filter(forms, function(o) { return o.timestamp > (Date.now() - twoWeeks); });  
+            if (cleanedForms.length === 0) {
+              localStorageService.remove(formKey);
+              continue;
+            }
+            if (cleanedForms.length !== forms.length) {
+              localStorageService.set(formKey, cleanedForms);
+            }
+          }
+        }
+
+        cleanLocalStorage();
 
         // Dismiss keyboard on clicking outside
         function isTextInput(node) {
@@ -116,6 +136,16 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
         /*
          ** Form Display Functions
          */
+        
+        var storeLocalStorage = function(form, submissionId) {
+          var storedForms = localStorageService.get(form._id);
+          if (storedForms === null) {
+            storedForms = [];
+          }
+          storedForms.push({'form': form, 'timestamp': Date.now(), 'submissionId': submissionId});
+          localStorageService.set(form._id, storedForms);
+        };
+
         $rootScope.exitStartPage = function() {
           $scope.myform.startPage.showStart = false;
         };
@@ -137,6 +167,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           setTimeout(function() {
             $scope.submitPromise = $http.post('/forms/' + $scope.myform.admin.agency.shortName + '/' + $scope.myform._id + '/submissions', form)
               .success(function(data, status, headers) {
+                storeLocalStorage(form, data['submissionId']);
                 $scope.myform.submitted = true;
                 $scope.button_clicked = false;
                 if (cb) {

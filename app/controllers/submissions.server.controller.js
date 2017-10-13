@@ -87,11 +87,13 @@ exports.create = function(req, res, next) {
 			transport.sendMail(mailOptions, function(err, info) {
 				if (!err) {
 					res.send({
-						message: 'Form submission email successfully sent to form admin.'
+						message: 'Form submission email successfully sent to form admin.',
+						submissionId: submission.id
 					});
 				} else {
 					return res.status(400).send({
-						message: 'Failure sending form submission email.'
+						message: 'Failure sending form submission email.',
+						submissionId: submission.id
 					});
 				}
 
@@ -129,11 +131,13 @@ exports.list = function(req, res) {
 	query.exec(function(err, _submissions) {
 		if (err) {
 			console.error(err);
-			res.status(400).send({
+			return res.status(400).send({
 				message: errorHandler.getErrorMessage(err)
 			});
+		} else {
+			res.json(_submissions);
 		}
-		res.json(_submissions);
+		
 	});
 };
 
@@ -144,16 +148,17 @@ exports.count = function(req, res) {
 	var searchCriteria = getSearchCriteria(req);
 	var query = Submission.find(searchCriteria);
 
-	query.count()
-		.exec(function(err, count) {
-			if (err) {
-				console.error(err);
-				res.status(400).send({
-					message: errorHandler.getErrorMessage(err)
-				});
-			}
-			res.json(count);
-		});
+	query.count().exec(function(err, count) {
+		if (err) {
+			console.error(err);
+			return res.status(400).send({
+				message: errorHandler.getErrorMessage(err)
+			});
+		} else {
+			return res.json(count);
+		}
+	});
+
 };
 
 var getSearchCriteria = function(req) {
@@ -187,7 +192,7 @@ exports.hasAuthorization = function(req, res, next) {
 	var form = req.form;
 	if (req.form.admin.id !== req.user.id && 
 		req.form.collaborators.indexOf(req.user.email) < 0) {
-		res.status(403).send({
+		return res.status(403).send({
 			message: 'User ' + req.user.username + ' is not authorized to edit Form: ' + form.title
 		});
 	}
