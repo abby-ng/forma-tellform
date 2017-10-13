@@ -63,7 +63,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           }
         };
 
-        $scope.reloadForm = function() {
+        $scope.reloadForm = $rootScope.reloadForm = function() {
           //Reset Form
           $scope.myform.submitted = false;
           $scope.myform.form_fields = _.chain($scope.myform.form_fields).map(function(field) {
@@ -146,7 +146,7 @@ angular.module('forms').directive('formDirective', ['$http', '$filter', '$rootSc
           localStorageService.set(form._id, storedForms);
         };
 
-        $scope.exitStartPage = function() {
+        $rootScope.exitStartPage = function() {
           $scope.myform.startPage.showStart = false;
         };
 
