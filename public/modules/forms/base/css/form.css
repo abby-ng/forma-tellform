@@ -36,7 +36,7 @@
   min-height: 100vh;
   background-color: #fff;
 }
-.public-form.submit-form .btn {
+.public-form.submit-form .btn:not(.btn-resubmit) {
   color: inherit;
   font-size: 1.3em;
 }
@@ -164,4 +164,8 @@ div.start-end-page .form-actions .url-btn {
     text-align: center;
     font-size: inherit;
   }
+}
+
+.submissions-table .resubmit-message {
+  padding-top: 15px;
 }
